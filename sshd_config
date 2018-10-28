@@ -1,86 +1,81 @@
-########################################################################################
-# SSH Hardened Configuration
-#######################################################################################
-
+#-----------------------------------------------------------------------------------------------------------------------------#
+# Hardened SSH Configuration
+#-----------------------------------------------------------------------------------------------------------------------------#
 Port 22
 AddressFamily inet
 ListenAddress 0.0.0.0
 
+#-----------------------------------------------------------------------------------------------------------------------------#
+# Only use strong key exchange algorithms, cipers and MACs
+#-----------------------------------------------------------------------------------------------------------------------------#
+KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com
+
 HostKey /etc/ssh/ssh_host_rsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
-
-KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256
-MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com
 
 SyslogFacility AUTH
 LogLevel VERBOSE
 
+#-----------------------------------------------------------------------------------------------------------------------------#
+# Login restrictions
+#-----------------------------------------------------------------------------------------------------------------------------#
 LoginGraceTime 30s
 PermitRootLogin no
 StrictModes yes
 MaxAuthTries 3
-MaxSessions 10
+MaxSessions 5
 
-#PubkeyAuthentication yes
-
-#AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2
-#AuthorizedPrincipalsFile none
-#AuthorizedKeysCommand none
-#AuthorizedKeysCommandUser nobody
+PubkeyAuthentication yes
+AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2
 
 HostbasedAuthentication no
 IgnoreRhosts yes
 PermitEmptyPasswords no
 ChallengeResponseAuthentication no
 
-# Kerberos options
-#KerberosAuthentication no
-#KerberosOrLocalPasswd yes
-#KerberosTicketCleanup yes
-#KerberosGetAFSToken no
-
-# GSSAPI options
-#GSSAPIAuthentication no
-#GSSAPICleanupCredentials yes
-#GSSAPIStrictAcceptorCheck yes
-#GSSAPIKeyExchange no
-
 UsePAM yes
 
 AllowAgentForwarding no
 AllowTcpForwarding no
-#GatewayPorts no
+GatewayPorts no
 X11Forwarding no
-#X11DisplayOffset 10
-#X11UseLocalhost yes
-#PermitTTY yes
+PermitTTY yes
 PrintMotd no
-PrintLastLog yes
-#TCPKeepAlive yes
-#UseLogin no
-#UsePrivilegeSeparation sandbox
-#PermitUserEnvironment no
-#Compression delayed
+PrintLastLog no
+UseLogin no
+UsePrivilegeSeparation sandbox
+PermitUserEnvironment no
+
+#-----------------------------------------------------------------------------------------------------------------------------#
+# Enable compression
+#-----------------------------------------------------------------------------------------------------------------------------#
+Compression yes
+CompressionLevel 6
 
 ClientAliveInterval 600
 ClientAliveCountMax 0
 
 UseDNS yes
-#PidFile /var/run/sshd.pid
-#MaxStartups 10:30:100
+PidFile /var/run/sshd.pid
+MaxStartups 10:30:100
 PermitTunnel no
 #ChrootDirectory none
 VersionAddendum none
 
-Banner none
+#-----------------------------------------------------------------------------------------------------------------------------#
+# Display a banner before authenticating to the system. Use your own /etc/issue.net file
+#-----------------------------------------------------------------------------------------------------------------------------#
+Banner /etc/issue.net
 DebianBanner no
 
+#-----------------------------------------------------------------------------------------------------------------------------#
 # Allow client to pass locale environment variables
+#-----------------------------------------------------------------------------------------------------------------------------#
 AcceptEnv LANG LC_*
 
-# override default of no subsystems
+#-----------------------------------------------------------------------------------------------------------------------------#
+# Override default of no subsystems
+#-----------------------------------------------------------------------------------------------------------------------------#
 Subsystem	sftp	/usr/lib/openssh/sftp-server
-
-#AllowUsers
-
-#AllowGroups
