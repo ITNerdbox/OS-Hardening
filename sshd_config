@@ -44,7 +44,6 @@ X11Forwarding no
 PermitTTY yes
 PrintMotd no
 PrintLastLog no
-UseLogin no
 UsePrivilegeSeparation sandbox
 PermitUserEnvironment no
 
