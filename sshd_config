@@ -51,7 +51,6 @@ PermitUserEnvironment no
 # Enable compression
 #-----------------------------------------------------------------------------------------------------------------------------#
 Compression yes
-CompressionLevel 6
 
 ClientAliveInterval 600
 ClientAliveCountMax 0
