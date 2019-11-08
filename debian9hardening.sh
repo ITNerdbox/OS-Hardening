@@ -91,8 +91,6 @@ if [ "$pass" = "$check_pass" ]; then
 	fi
 fi
 
-exit
-
 ## Dependencies
 apt install ca-certificates --assume-yes > /dev/null
 apt install libpam-cracklib --assume-yes > /dev/null
