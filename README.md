@@ -1,5 +1,5 @@
 # Configuration Hardening
-General Linux hardening and auditing configuration files that can be pulled after a fresh installation. These configuration files have been tested on Debian 9 (stretch).
+General Linux hardening and auditing configuration files that can be pulled after a fresh installation. These configuration files have been tested on Debian 9 (stretch) and Debian 10 (buster).
 
 ## Memory and Network configuration
 The memory and network configuration are set in the sysctl.conf file. This memory configuration disables the OOM (Out of Memory) killer to prevent random processes being killed.
