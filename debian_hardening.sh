@@ -108,6 +108,10 @@ mv /etc/sysctl.conf ~/configuration-backups
 wget -q -O /etc/sysctl.conf https://raw.githubusercontent.com/ITNerdbox/hardening-configurations/master/sysctl.conf
 sysctl -p > /dev/null 2>1
 
+## Configure Firewall to only allow TCP/22
+ufw allow 22
+ufw enable
+
 ## Clear the history file
 history -c
 
