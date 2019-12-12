@@ -111,6 +111,7 @@ wget -q -O /etc/sysctl.conf https://raw.githubusercontent.com/ITNerdbox/hardenin
 sysctl -p > /dev/null 2>1
 
 ## Configure Firewall to only allow TCP/22
+ufw default deny
 ufw allow 22
 ufw enable
 
