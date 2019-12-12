@@ -97,6 +97,7 @@ apt install libpam-cracklib --assume-yes > /dev/null
 apt install acl --assume-yes > /dev/null
 apt install whois --assume-yes > /dev/null
 apt install ufw --assume-yes > /dev/null
+apt install sudo --assume-yes > /dev/null
 
 ## Disable Core Dumps, they might contain sensitive information from memory
 echo "* soft core 0" >> /etc/security/limits.conf
