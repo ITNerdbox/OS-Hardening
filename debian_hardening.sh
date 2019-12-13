@@ -31,15 +31,15 @@ echo -n '
 │   /    |    \/        \    Y    // __ \|  | \/ /_/ \  ___/|   |  \  |   |  \/ /_/  >   │
 │   \_______  /_______  /\___|_  /(____  /__|  \____ |\___  >___|  /__|___|  /\___  /    │
 │           \/        \/       \/      \/           \/    \/     \/        \//_____/     │
-│                                                          v1.0 (c) 2018 by J. Diel      │
+│                                                   v1.1 (c) 2018 - 2019 by J. Diel      │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 '
 echo ""
 echo "INTRODUCTION:"
 echo ""
-echo "This is a post operating system installation hardening script for Debian 9 servers. Before"
-echo "continuing the hardening of the operating system it's required to create a new user to the"
-echo "the system that will be added to the sudoers group.                                     "
+echo "This is a post operating system installation hardening script for Debian 9 and 10 servers."
+echo "Before continuing the hardening of the operating system it's required to create a new user"
+echo "to the the system that will be added to the sudoers group.                                     "
 echo ""
 echo "It is important to understand that the SSH configuration will disable password based auth"
 echo "and that a public/private key should be created on your client before proceeding."
@@ -91,13 +91,16 @@ if [ "$pass" = "$check_pass" ]; then
 	fi
 fi
 
-## Dependencies
+## Dependencies and packages to harden the system
 apt install ca-certificates --assume-yes > /dev/null
 apt install libpam-cracklib --assume-yes > /dev/null
 apt install acl --assume-yes > /dev/null
-apt install whois --assume-yes > /dev/null
+apt install unattended-upgrades apt-listchanges --assume-yes > /dev/null
 apt install ufw --assume-yes > /dev/null
 apt install sudo --assume-yes > /dev/null
+
+## Additional packages
+apt install whois --assume-yes > /dev/null
 apt install net-tools --assume-yes > /dev/null
 apt install dnsutils --assume-yes > /dev/null
 
