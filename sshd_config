@@ -27,6 +27,7 @@ StrictModes yes
 MaxAuthTries 3
 MaxSessions 5
 
+PasswordAuthentication no
 PubkeyAuthentication yes
 AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2
 
