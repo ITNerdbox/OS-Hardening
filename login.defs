@@ -3,74 +3,74 @@
 #---------------------------------------------------------------------------#
 
 # Mail Directory Path
-MAIL_DIR        	/var/mail
+MAIL_DIR              /var/mail
 
 # Enable logging for login failure attempts in /var/log/failly
-FAILLOG_ENAB		  yes
+FAILLOG_ENAB          yes
 
 # Logging unknown usernames
-LOG_UNKFAIL_ENAB	no
+LOG_UNKFAIL_ENAB      no
 
 # Logging successful logins
-LOG_OK_LOGINS		  no
+LOG_OK_LOGINS         no
 
 # Logging of su sg activity
-SYSLOG_SU_ENAB		yes
-SYSLOG_SG_ENAB		yes
+SYSLOG_SU_ENAB        yes
+SYSLOG_SG_ENAB        yes
 
 # Logging of login failures in utmp format
-FTMP_FILE		      /var/log/btmp
+FTMP_FILE             /var/log/btmp
 
 # Command name to display when running 'su -'
-SU_NAME				    su
+SU_NAME               su
 
 # Default PATH settings for super users and low privileged users.
-ENV_SUPATH			  PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-ENV_PATH			    PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+ENV_SUPATH            PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV_PATH              PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
 # Terminal Permissions
-TTYGROUP			    tty
-TTYPERM				    0600
+TTYGROUP              tty
+TTYPERM               0600
 
 # Login configuration initializations
-ERASECHAR			    0177
-KILLCHAR			    025
-UMASK				      027
+ERASECHAR             0177
+KILLCHAR              025
+UMASK                 027
 
 # Password aging (modify if required, recommended for shared systems)
-PASS_MAX_DAYS		  99999
-PASS_MIN_DAYS	  	0
-PASS_WARN_AGE		  7
+PASS_MAX_DAYS         99999
+PASS_MIN_DAYS         0
+PASS_WARN_AGE         7
 
 # User ID's
-UID_MIN			 	    1000
-UID_MAX				    60000
+UID_MIN               1000
+UID_MAX               60000
 
 # System User ID's
-SYS_UID_MIN		  	100
-SYS_UID_MAX		  	999
+SYS_UID_MIN           100
+SYS_UID_MAX           999
 
 # Group ID's
-GID_MIN			 	    1000
-GID_MAX				    60000
+GID_MIN               1000
+GID_MAX               60000
 
 # System Group ID's
-SYS_GID_MIN		  	100
-SYS_GID_MAX		  	999
+SYS_GID_MIN           100
+SYS_GID_MAX           999
 
 # Login attempts
-LOGIN_RETRIES		  3
+LOGIN_RETRIES         3
 
 # Maximum time (seconds) for authentication
-LOGIN_TIMEOUT		  30
+LOGIN_TIMEOUT         30
 
 # Allow login if the home directory can't be accessed
-DEFAULT_HOME		  no
+DEFAULT_HOME          no
 
 # Remove the user's group if or when it no longer contains members
-USERGROUPS_ENAB 	yes
+USERGROUPS_ENAB       yes
 
 # Password Hashing Algorithm
-ENCRYPT_METHOD 		SHA512
-SHA_CRYPT_MIN_ROUNDS 5000000
-SHA_CRYPT_MAX_ROUNDS 9000000
+ENCRYPT_METHOD        SHA512
+SHA_CRYPT_MIN_ROUNDS  5000000
+SHA_CRYPT_MAX_ROUNDS  9000000
