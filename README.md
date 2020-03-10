@@ -27,3 +27,6 @@ In the upcoming weeks / months updates will be released. Future improvements are
 
 - Automatically configure the PAM cracklib module in /etc/pam.d/common-password
 - Uninstall specific software that can be used in common attacks such as Netcat (which for some reason is installed by default)
+
+
+For suggestions, comments or requests feel free to contact me.
