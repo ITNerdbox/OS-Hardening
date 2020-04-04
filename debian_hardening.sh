@@ -139,14 +139,14 @@ doHarden() {
 
 	## Setup Firewall 22/TCP only
 	echo -ne " ${COL_GRN} ENABLE FIREWALL      : ${COL_NON}"
-	ufw default deny incoming > dev/null
+	ufw default deny incoming > /dev/null
 	ufw allow 22 > /dev/null
 	ufw enable > /dev/null
 	echo " Done "
 
 	## Update sysctl.conf
 	mv /etc/sysctl.conf ~/configuration-backups
-	wget -q -O /etc/sysctl.conf $GITHUB_REPO/sysctl.conf\
+	wget -q -O /etc/sysctl.conf $GITHUB_REPO/sysctl.conf
 	chmod 644 /etc/sysctl.conf
 	sysctl -p > /dev/null 2>1
 
