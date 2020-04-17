@@ -137,21 +137,20 @@ doHarden() {
 	echo "* hard core 0" >> /etc/security/limits.conf
 	echo " Done "
 
-	## Setup Firewall 22/TCP only
-	echo -ne " ${COL_GRN} ENABLE FIREWALL      : ${COL_NON}"
-	ufw default deny incoming > /dev/null
-	ufw allow 22 > /dev/null
-	ufw enable > /dev/null
-	echo " Done "
-
 	## Update sysctl.conf
 	mv /etc/sysctl.conf ~/configuration-backups
 	wget -q -O /etc/sysctl.conf $GITHUB_REPO/sysctl.conf
 	chmod 644 /etc/sysctl.conf
-	sysctl -p > /dev/null 2>1
+	sysctl -p > /dev/null
 
 	## Update home directory permissions
 	chmod 750 /home/$user
+
+	## Setup Firewall 22/TCP only
+	echo " ${COL_GRN} ENABLE FIREWALL      : ${COL_NON}"
+	ufw default deny incoming > /dev/null
+	ufw allow 22 > /dev/null
+	ufw enable 
 
 	## Cleanup
 	apt-get purge curl --assume-yes > /dev/null
