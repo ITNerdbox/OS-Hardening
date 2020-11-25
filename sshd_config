@@ -12,7 +12,6 @@ KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group16-sha512,diffie-
 Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com
 
-HostKey /etc/ssh/ssh_host_rsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
 
 SyslogFacility AUTH
@@ -56,7 +55,7 @@ Compression yes
 ClientAliveInterval 600
 ClientAliveCountMax 0
 
-UseDNS yes
+UseDNS no
 PidFile /var/run/sshd.pid
 MaxStartups 10:30:100
 PermitTunnel no
@@ -78,3 +77,8 @@ AcceptEnv LANG LC_*
 # Override default of no subsystems
 #-----------------------------------------------------------------------------------------------------------------------------#
 Subsystem	sftp	/usr/lib/openssh/sftp-server
+
+#-----------------------------------------------------------------------------------------------------------------------------#
+# Allowing one or more system groups to login over SSH
+#-----------------------------------------------------------------------------------------------------------------------------#
+AllowGroups	sshlogin
