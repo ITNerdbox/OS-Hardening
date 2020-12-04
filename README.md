@@ -1,32 +1,61 @@
-# Configuration Hardening
-General Linux hardening and auditing configuration files that can be pulled after a fresh installation. These configuration files have been tested on Debian 9 (stretch) and Debian 10 (buster).
+# About
+This is a post operating system installation hardening script for Debian like distributions. It has been tested on Debian 10 (buster) in a virtual environment.
 
-## Linux umask
-The default umask will be changed to 027 (750), which prevents any user created directory to be world readable.
+## Hardened Items
 
-## Memory and Network configuration
-The memory and network configuration are set in the sysctl.conf file. This memory configuration disables the OOM (Out of Memory) killer to prevent random processes being killed.
+File System and Permission Configuration
+- [x] Default umask is changed to 027 (750), which prevents any user created directory to be world readable.
+- [x] Set proper permissions in /home
+- [x] Set noexec bit on /tmp partition
 
-The network is configuration is set to only enable IPv4 without any routing options, thus assuming the machine is not a router.
+Memory Configuration
+- [x] Enable memory randomization
+- [x] Disable creating hardlinks and symbolic links for unauthorized users
+- [x] Disable OOM (Out of Memory) killer to prevent random processes being killed.
 
-## SSH Configuration
-The SSH configuration file uses only strong key exchange algorithms, cipers and MACs and has direct root access disabled. Additionally, for strong security only key based access and/or two factor authentication should be configured.
+Network Configuration
+- [x] Disable IPv6
+- [x] Disable IPv4 forwarding
+- [x] Disable ICMP redirects
+- [x] Disable IP source route packets
+- [x] Disable source routing
+- [x] Disable BOOTP relay
+- [x] Disable Proxy ARP
+- [x] Disable specific network protocols (dccp, sctp, rds and tipc)
+- [x] Ignore ICMP ECHO and TIMESTAMP requests via broadcast/multicast
+- [x] Enable source address verification to prevent spoofing attacks
+- [x] Enable source validation by reversed path
+- [x] Enable firewall to deny any incoming traffic
+- [x] Enable firewall to accept incomming connection to TCP/22 (SSH)
 
-## Firewall
-Uncomplicated firewall is configured default to block incoming traffic by default with the exception of SSH (TCP/22) and allowing outgoing connections.
+Authentication
+- [x] Disable root login from the console
+- [x] Disable root login from SSH
+- [x] Disable password based authentication for SSH
 
-## Passwords
-Passwords are stored using the SHA512 hashing algorithm. The default number of SHA rounds used by the encryption algorithm is set between 5000000 (min) and 9000000 (max).
+Passwords
+- [x] Storing passwords using the SHA512 hashing algorithm
+- [x] Default number of SHA rounds is set between (min) 5000000 and (max) 9000000
+- [x] Install and enable PAM cracklib
+- [ ] Configure PAM cracklib with user defined settings
+- [ ] Enforce a password policy: Password change frequency for shared systems
 
-The PAM cracklib module is installed by default but for now requires manual editing of the /etc/pam.d/common-password file.
+SSH Configuration
+- [x] Enforce strong Key Exchange Algorithms (KEX)
+- [x] Enforce strong ciphers
+- [x] Enforce strong Message Authentication Codes (MACs)
+- [x] Only allow users that are part of the group sshlogin
+- [x] Only allow ed25519 SSH keys (RSA is no longer accepted)
+
+Hardware
+- [x] Disable USB
+- [x] Disable Firewire
+- [x] Enable Spectre like attack protection
 
 
-# Future Releases
-## 03/10/2020
-In the upcoming weeks / months updates will be released. Future improvements are:
+## Bug Fixes
+DEC-04-2020: If a username was already present on the system during the creation of the SSH keys, the script would stop.
+OCT-03-2020: Script hung after enabling the firewall.
 
-- Automatically configure the PAM cracklib module in /etc/pam.d/common-password
-- Uninstall specific software that can be used in common attacks such as Netcat (which for some reason is installed by default)
-
-
-For suggestions, comments or requests feel free to contact me.
+## Contact
+If you have suggestions, comments, requests or found a bug, feel free to contact me.
