@@ -55,6 +55,7 @@ Hardware
 
 ## Bug Fixes
 DEC-04-2020: If a username was already present on the system during the creation of the SSH keys, the script would stop.
+
 OCT-03-2020: Script hung after enabling the firewall.
 
 ## Contact
