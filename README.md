@@ -4,7 +4,7 @@ This is a post operating system installation hardening script for Debian like di
 ## Hardened Items
 
 File System and Permission Configuration
-- [x] Default umask is changed to 027 (750), which prevents any user created directory to be world readable.
+- [x] Default umask is changed to 027 (750), which prevents any user created directories to be world readable.
 - [x] Set proper permissions in /home
 - [x] Set noexec bit on /tmp partition
 
