@@ -7,10 +7,10 @@ File System and Permission Configuration
 - [x] Default umask is changed to 027 (750), which prevents any user created directories to be world readable.
 - [x] Set proper permissions in /home
 - [x] Set noexec bit on /tmp partition
+- [x] Disable creating hardlinks and symbolic links for unauthorized users
 
 Memory Configuration
 - [x] Enable memory randomization
-- [x] Disable creating hardlinks and symbolic links for unauthorized users
 - [x] Disable OOM (Out of Memory) killer to prevent random processes being killed.
 
 Network Configuration
