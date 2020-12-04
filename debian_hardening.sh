@@ -143,7 +143,7 @@ function distro() {
 
 function create_user_ssh_key() {
 	echo ""
-    echo -e " ${COL_GRN} CREATING SSH Keys: ${COL_WHI}"
+    	echo -e " ${COL_GRN} CREATING SSH Keys: ${COL_WHI}"
 	echo ""
 	warning
 	echo "   NOTE: If an SSH key is already present, step one can be skipped"
