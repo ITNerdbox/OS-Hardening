@@ -19,7 +19,7 @@ COL_GRN="\e[92m"
 COL_WHI="\e[97m"
 COL_NON="\033[0m"
 
-GITHUB_REPO="https://raw.githubusercontent.com/ITNerdbox/hardening-configurations/master"
+GITHUB_REPO="https://raw.githubusercontent.com/ITNerdbox/OS-Hardening/master"
 PATH_OS_RELEASE="/etc/os-release"
 PATH_BACKUP="~/configuration-backups"
 
