@@ -95,7 +95,7 @@ function create_user() {
         read -p "   Enter your username : " user
         read -sp "   Enter your password : " pass
         echo ""
-        /usr/sbingroupadd sshlogin > /dev/null
+        /usr/sbin/groupadd sshlogin > /dev/null
         
         egrep "^$user" /etc/passwd >/dev/null
 	if [ $? -eq 0 ]; then
