@@ -181,7 +181,7 @@ function create_user_ssh_key() {
 	else
 		echo ""
 		echo -e "   ${COL_RED}[Error] ${COL_WHI} Passwords do not match!"
-		create_ssh_key
+		create_user_ssh_key
 	fi
 }
 
