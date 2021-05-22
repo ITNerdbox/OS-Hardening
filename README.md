@@ -17,7 +17,7 @@ A terminal based wizzard is used to guide users through the installation and con
 |--------------|-------|---------------------------------------------------------------|
 |PAM Cracklib  |Added  |PAM Cracklib is now properly configured based on in script user settings.|
 |Firehol       |Added  |Firewall: Replaced ufw with Firehol as it is easier to configure multiple network zones.|
-|              |Added  |Firehol configuration is automatically generated and set to only allow SSH on the main inteface.|
+|              |Added  |Firehol configuration is automatically generated and set to only allow SSH on the main interface.|
 |Backup        |Fixed  |Backup of configuration files was not handeled properly.| 
 
 ## Features
