@@ -1,9 +1,9 @@
-![](./internal/osh.png)
-# Operating System Hardening
+![](https://github.com/ITNerdbox/OS-Hardening/blob/master/.internal/osh.png)
 ![](https://img.shields.io/badge/OS%20Hardening-v1.4-blue) ![](https://img.shields.io/badge/Debian-v10.9-green)
 
-
+## Description
 OS-Hardening is a post Debian like operating system hardening script written in Bash and should be executed after a clean installation.
+
 ## Installation & Usage
 
 ```bash
