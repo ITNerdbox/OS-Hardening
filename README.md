@@ -1,3 +1,4 @@
+![](./internal/osh.png)
 # Operating System Hardening
 ![](https://img.shields.io/badge/OS%20Hardening-v1.4-blue) ![](https://img.shields.io/badge/Debian-v10.9-green)
 
