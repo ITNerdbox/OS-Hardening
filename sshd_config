@@ -44,7 +44,7 @@ X11Forwarding no
 PermitTTY yes
 PrintMotd no
 PrintLastLog no
-UsePrivilegeSeparation sandbox
+#UsePrivilegeSeparation sandbox			# As per documentation, this is considered depricated and turned on by default.
 PermitUserEnvironment no
 
 #-----------------------------------------------------------------------------------------------------------------------------#
